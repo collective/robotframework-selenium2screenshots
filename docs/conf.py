@@ -15,7 +15,7 @@ source_encoding = 'utf-8'
 master_doc = 'index'
 
 # General information about the project.
-project = u'robotframework-wavelibrary'
+project = u'robotframework-selenium2screenshots'
 copyright = u'Asko Soukka <asko.soukka@iki.fi>'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -41,7 +41,7 @@ pygments_style = 'sphinx'
 # html_theme = 'pyramid'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'robotframework-wavelibrary'
+htmlhelp_basename = 'robotframework-selenium2screenshots'
 
 # -- Options for LaTeX output --------------------------------------------------
 
@@ -52,7 +52,7 @@ latex_elements = {
 latex_documents = [
     # (source target file, target latex name, document title,
     #  author, document clas [howto/manual]),
-    ('index', 'robotframework-wavelibrary.tex',
-     u'Robot Framework WAVE-library Documentation',
+    ('index', 'robotframework-selenium2screenshots.tex',
+     u'Robot Framework Selenium2Screenshots Library Documentation',
      u'asko.soukka@iki.fi', 'manual'),
 ]

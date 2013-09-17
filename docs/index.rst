@@ -1,4 +1,4 @@
-Robot Framework Selenium2Screenshots-library
+Robot Framework Selenium2Screenshots Library
 ============================================
 
 Usage
