@@ -1,0 +1,4 @@
+recursive-include docs *
+recursive-include src *
+include *.txt *.rst setup.py
+global-exclude *.pyc
