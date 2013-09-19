@@ -14,6 +14,13 @@ ${CROP_MARGIN} =  10
 *** Keywords ***
 
 Normalize annotation locator
+    [Documentation]  Normalizes the given *Selenium2Library*-locator into
+    ...              *Sizzle*-selector, which is the support selector
+    ...              format in the annotation keywords.
+    ...
+    ...              Requires a single argument (``locator``).
+    ...
+    ...              Returns the normalized ``selector``.
     [Arguments]  ${locator}
     ${locator} =  Replace string  ${locator}  '  \\'
 
@@ -28,6 +35,19 @@ Normalize annotation locator
     [return]  ${locator}
 
 Add pointer
+    [Documentation]  Adds a round transparent dot into center of the
+    ...              given ``locator``.
+    ...
+    ...              Requires a single argument (``locator``) and accepts the
+    ...              following keyword arguments:
+    ...
+    ...              - ``size``, which is the size of \
+    ...                the annotation element in pixels (default: ``20``)
+    ...
+    ...              - ``display``, which is the display-value of \
+    ...                the annotation element (default: ``block``).
+    ...
+    ...              Returns ``id`` of the created element.
     [Arguments]  ${locator}
     ...          ${size}=20  ${display}=block
     ${selector} =  Normalize annotation locator  ${locator}
@@ -73,6 +93,28 @@ Add pointer
     [return]  ${id}
 
 Add dot
+    [Documentation]  Adds a colored round dot into center of
+    ...              the given ``locator``.
+    ...
+    ...              Requires a single argument (``locator``) and accepts the
+    ...              following keyword arguments:
+    ...
+    ...              - ``text``, which is rendered inside \
+    ...                the annotation element (defaults: ``none``)
+    ...
+    ...              - ``size``, which is the size of \
+    ...                the annotation element in pixels (default: ``20``)
+    ...
+    ...              - ``background``, which is the backround color of \
+    ...                the annotation element (default: ``#fcf0ad``)
+    ...
+    ...              - ``color``, which is the foreground color of \
+    ...                the annotation element (default: ``black``)
+    ...
+    ...              - ``display``, which is the display-value of \
+    ...                the annotation element (default: ``block``).
+    ...
+    ...              Returns ``id`` of the created element.
     [Arguments]  ${locator}  ${text}=${EMPTY}
     ...          ${size}=20
     ...          ${background}=#fcf0ad
@@ -94,6 +136,34 @@ Add dot
     [return]  ${id}
 
 Add note
+    [Documentation]  Adds a colored note into center of the
+    ...              the given ``locator`` with the given ``text``.
+    ...
+    ...              Requires two arguments (``locator`` and ``text``)
+    ...              and accept the following keyword arguments:
+    ...
+    ...              - ``width``, which is the width of \
+    ...                the annotation element in pixels (default: ``140``)
+    ...
+    ...              - ``background``, which is the backround color of \
+    ...                the annotation element (default: ``#fcf0ad``)
+    ...
+    ...              - ``color``, which is the foreground color of \
+    ...                the annotation element (default: ``black``)
+    ...
+    ...              - ``border``, which is the border style of \
+    ...                the annotation element (default: ``none``)
+    ...
+    ...              - ``display``, which is the display-value of \
+    ...                the annotation element (default: ``block``)
+    ...
+    ...              - ``position``, which defines an alternative position \
+    ...                for the annotation element relative to the given and \
+    ...                must be one of the following values: \
+    ...                ``top``, ``right``, ``bottom`` or ``left``
+    ...                (default: ``none``).
+    ...
+    ...              Returns ``id`` of the created element.
     [Arguments]  ${locator}  ${text}
     ...          ${width}=140
     ...          ${background}=#fcf0ad
@@ -194,6 +264,10 @@ Add note
     [return]  ${id}
 
 Remove element
+    [Documentation]   Removes the element with the given ``id`` from the
+    ...               document.
+    ...
+    ...               Requires a single argument (``id``).
     [Arguments]  ${id}
     Execute Javascript
     ...    return (function(){
@@ -202,11 +276,23 @@ Remove element
     ...    })();
 
 Remove elements
+    [Documentation]   Removes elements with the given ``ids`` from the
+    ...               document.
+    ...
+    ...               Requires at least one argument (at least one ``id``).
     [Arguments]  @{ids}
     :FOR  ${id}  IN  @{ids}
     \  Remove element  ${id}
 
 Update element style
+    [Documentation]   Updates style for the element with the ``locator``.
+    ...               Updates only one style property of the given ``name``
+    ...               with the given ``value``.
+    ...
+    ...               Requires three arguments (``locator``, ``name`` and
+    ...               ``value``).
+    ...
+    ...               Returns normalized ``selector`` of the updated element.
     [Arguments]  ${locator}  ${name}  ${value}
     ${selector} =  Normalize annotation locator  ${locator}
     ${name} =  Replace string  ${name}  '  \\'
@@ -221,6 +307,12 @@ Update element style
     [return]  ${selector}
 
 Align elements horizontally
+    [Documentation]  Aligns the elements matching the given ``locators``
+    ...              so that the following elements are centered after the
+    ...              first element.
+    ...
+    ...              Requires at least two arguments
+    ...              (at least two ``locator``).
     [Arguments]  @{locators}
     @{selectors} =  Create list
     :FOR  ${locator}  IN  @{locators}
@@ -249,6 +341,12 @@ Align elements horizontally
     ...    })();
 
 Crop page screenshot
+    [Documentation]  Crops the given ``filename`` to
+    ...              match the combined bounding box of the
+    ...              elements matching the given ``locators``.
+    ...
+    ...              Requires at least two arguments
+    ...              (``filename`` and at least one ``locator``).
     [Arguments]  ${filename}  @{locators}
     @{selectors} =  Create list
     :FOR  ${locator}  IN  @{locators}
@@ -296,6 +394,11 @@ Crop page screenshot
     Crop image  ${OUTPUT_DIR}  ${filename}  @{dimensions}
 
 Capture viewport screenshot
+    [Documentation]  Captures a page screenshot with the given ``filename`` and
+    ...              crops it to match the current browser window dimensions
+    ...              scroll position.
+    ...
+    ...              Requires a single argument (``filename``).
     [Arguments]  ${filename}
     Capture page screenshot  ${filename}
     @{dimensions} =  Execute Javascript
@@ -314,6 +417,12 @@ Capture viewport screenshot
     Crop image  ${OUTPUT_DIR}  ${filename}  @{dimensions}
 
 Capture and crop page screenshot
+    [Documentation]  Captures a page screenshot with the given ``filename`` and
+    ...              crops it to match the combined bounding box of the
+    ...              elements matching the given ``locators``.
+    ...
+    ...              Requires at least two arguments
+    ...              (``filename`` and at least one ``locator``).
     [Arguments]  ${filename}  @{locators}
     Capture page screenshot  ${filename}
     Crop page screenshot  ${filename}  @{locators}

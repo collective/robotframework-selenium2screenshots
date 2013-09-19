@@ -12,8 +12,8 @@ Include keywords with::
 
    Currently, RIDE is unable to find keywords provided by this library when
    this library is imported with ``Library  Selenium2Screenshots``. This can be
-   fixed by requiring the library with
-   ``Resource Selenium2Screenshots/keywords.robot``.
+   fixed by requiring the library with ``Resource
+   Selenium2Screenshots/keywords.robot``.
 
    (Currently all keywords are written as user keywords, but later they may be
    refactored into Python-keywords. If this happens, there will be backwards
