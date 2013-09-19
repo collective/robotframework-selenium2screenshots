@@ -37,7 +37,7 @@ This is how this should work:
        ${note1} =  Add note
        ...    header
        ...    This Robot Framework stuff is very very cool!
-       ...    width=200 position=bottom
+       ...    width=200  position=bottom
        Capture and crop page screenshot  robotframework.png
        ...    header  ${note1}
 
