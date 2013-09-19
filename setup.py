@@ -30,6 +30,6 @@ setup(
         "Sphinx"
         "Pilllow",
         "sphinxcontrib-robotdoc>=0.5.1",
-        "sphinxcontrib-roboframework",
+        "sphinxcontrib-robotframework",
     ], "PIL": ["PIL"], "Pillow": ["Pillow"]},
 )
