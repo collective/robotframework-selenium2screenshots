@@ -36,8 +36,8 @@ This is how this should work:
        Update element style  header h1  outline  3px dotted red
        ${note1} =  Add note
        ...    header
-       ...    PS. Robot Frmamework is very cool stuff!
-       ...    width=180  position=bottom
+       ...    This Robot Framework stuff is very very cool!
+       ...    width=200 position=bottom
        Capture and crop page screenshot  robotframework.png
        ...    header  ${note1}
 
