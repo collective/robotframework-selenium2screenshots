@@ -28,7 +28,7 @@ setup(
     ],
     extras_require={"docs": [
         "Sphinx",
-        "Pilllow",
+        "Pillow",
         "sphinxcontrib-robotdoc>=0.5.1",
         "sphinxcontrib-robotframework",
     ], "PIL": ["PIL"], "Pillow": ["Pillow"]},
