@@ -27,7 +27,7 @@ setup(
         "robotframework-selenium2library",
     ],
     extras_require={"docs": [
-        "Sphinx"
+        "Sphinx",
         "Pilllow",
         "sphinxcontrib-robotdoc>=0.5.1",
         "sphinxcontrib-robotframework",
