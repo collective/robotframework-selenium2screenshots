@@ -3,6 +3,7 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
     "sphinxcontrib_robotdoc",
+    "sphinxcontrib_robotframework",
 ]
 
 # The suffix of source filenames.
