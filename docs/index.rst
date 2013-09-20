@@ -41,7 +41,7 @@ This is how this should work:
        Capture and crop page screenshot  robotframework.png
        ...    header  ${note1}
 
-And this is this would look:
+And this is how this would look:
 
 .. image:: robotframework.png
    :width: 600

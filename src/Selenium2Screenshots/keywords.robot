@@ -302,45 +302,117 @@ Add pointy note
     ...        var annotationWidth = annotation.outerWidth();
     ...        var annotationHeight = annotation.outerHeight();
     ...        var arrow = jQuery('<div></div>');
+    ...        var background = jQuery('<div></div>');
+    ...        /* These are to fix hi-res (Retina) downscaling artifacts: */
+    ...        var fixH = jQuery('<div></div>');
+    ...        var fixV = jQuery('<div></div>');
     ...        arrow.css({
     ...            'border-color': 'transparent',
     ...            'border-style': 'solid',
     ...            'border-width': '10px',
     ...            'height': '0',
     ...            'width': '0',
+    ...            'position': 'absolute'
+    ...        });
+    ...        background.css({
+    ...            'border-color': 'transparent',
+    ...            'border-style': 'solid',
+    ...            'border-width': '12px',
+    ...            'height': '0',
+    ...            'width': '0',
+    ...            'position': 'absolute'
+    ...        });
+    ...        fixH.css({
+    ...            'width': '24px',
+    ...            'height': '2px',
     ...            'position': 'absolute',
-    ...            'z-index': '9999'
+    ...            'background': '${background}'
+    ...        });
+    ...        fixV.css({
+    ...            'width': '2px',
+    ...            'height': '24px',
+    ...            'position': 'absolute',
+    ...            'background': '${background}'
     ...        });
     ...        if ('${position}' === 'top') {
+    ...            background.css({
+    ...                'border-top-color': '#d6d6d6',
+    ...                'bottom': '-23px',
+    ...                'left': ((annotationWidth - 23) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
     ...            arrow.css({
-    ...                'bottom': '-19.1px',
-    ...                'left': (
-    ...                    Math.floor((annotationWidth - 19) / 2) + 0.1
-    ...                ).toString() + 'px'
+    ...                'border-top-color': '${background}',
+    ...                'bottom': '-19px',
+    ...                'left': ((annotationWidth - 19) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...            fixH.css({
+    ...                'bottom': '0',
+    ...                'left': ((annotationWidth - 24) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...            fixV.css({
+    ...                'bottom': '-8px',
+    ...                'height': '8px',
+    ...                'left': ((annotationWidth - 1) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...        } else if ('${position}' === 'bottom') {
+    ...            background.css({
+    ...                'border-bottom-color': '#d6d6d6',
+    ...                'top': '-23px',
+    ...                'left': ((annotationWidth - 23) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
     ...            arrow.css({
     ...                'border-bottom-color': '${background}',
-    ...                'top': '-19.1px',
-    ...                'left': (
-    ...                    Math.floor((annotationWidth - 19) / 2) + 0.1
-    ...                ).toString() + 'px'
+    ...                'top': '-19px',
+    ...                'left': ((annotationWidth - 19) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...            fixH.css({
+    ...                'top': '1px',
+    ...                'left': ((annotationWidth - 24) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...            fixV.css({
+    ...                'top': '-8px',
+    ...                'height': '8px',
+    ...                'left': ((annotationWidth - 1) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...        } else if ('${position}' === 'left') {
+    ...            background.css({
+    ...                'border-left-color': '#d6d6d6',
+    ...                'right': '-23px',
+    ...                'top': ((annotationHeight - 23) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
     ...            arrow.css({
     ...                'border-left-color': '${background}',
     ...                'right': '-19px',
-    ...                'top': (
-    ...                    Math.floor((annotationHeight - 19) / 2) + 0.5
-    ...                ).toString() + 'px'
+    ...                'top': ((annotationHeight - 19) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...            fixH.css({
+    ...                'right': '-8px',
+    ...                'width': '8px',
+    ...                'top': ((annotationHeight - 1) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...            fixV.css({
+    ...                'right': '0px',
+    ...                'top': ((annotationHeight - 24) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...        } else if ('${position}' === 'right') {
+    ...            background.css({
+    ...                'border-right-color': '#d6d6d6',
+    ...                'left': '-23px',
+    ...                'top': ((annotationHeight - 23) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
     ...            arrow.css({
     ...                'border-right-color': '${background}',
     ...                'left': '-19px',
-    ...                'top': (
-    ...                    Math.floor((annotationHeight - 19) / 2) + 0.5
-    ...                ).toString() + 'px'
+    ...                'top': ((annotationHeight - 19) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...            fixH.css({
+    ...                'left': '-8px',
+    ...                'width': '8px',
+    ...                'top': ((annotationHeight - 1) / 2).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...            fixV.css({
+    ...                'left': '0',
+    ...                'top': ((annotationHeight - 24) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...        }
     ...        return true;
