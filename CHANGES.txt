@@ -1,11 +1,11 @@
 Changelog
 =========
 
-0.3.1 (unreleased)
+0.3.1 (2013-09-20)
 ------------------
 
-- Nothing changed yet.
-
+- Fix issues with pointy note
+  [Asko Soukka]
 
 0.3.0 (2013-09-20)
 ------------------
