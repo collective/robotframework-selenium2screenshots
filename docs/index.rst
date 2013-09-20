@@ -34,7 +34,7 @@ This is how this should work:
        Open browser  http://robotframework.org/
        Update element style  header  margin-top  1em
        Update element style  header h1  outline  3px dotted red
-       ${note1} =  Add note
+       ${note1} =  Add pointy note
        ...    header
        ...    This Robot Framework stuff is very very cool!
        ...    width=200  position=bottom

@@ -263,6 +263,90 @@ Add note
     ...                  msg=${selector} was not found and no note was created
     [return]  ${id}
 
+Add pointy note
+    [Documentation]  Adds a note with the given ``locator`` with
+    ...              the given ``text`` and an arrow pointing to the
+    ...              locator from the given ``position``.
+    ...
+    ...              Requires two arguments (``locator`` and ``text``)
+    ...              and accept the following keyword arguments:
+    ...
+    ...              - ``width``, which is the width of \
+    ...                the annotation element in pixels (default: ``140``)
+    ...
+    ...              - ``background``, which is the backround color of \
+    ...                the annotation element (default: ``#fcf0ad``)
+    ...
+    ...              - ``color``, which is the foreground color of \
+    ...                the annotation element (default: ``black``)
+    ...
+    ...              - ``position``, which defines the position \
+    ...                of the annotation element relative to the given and \
+    ...                must be one of the following values: \
+    ...                ``top``, ``right``, ``bottom`` or ``left``
+    ...                (default: ``bottom``).
+    ...
+    ...              Returns ``id`` of the created element.
+    [Arguments]  ${locator}  ${text}
+    ...          ${width}=140
+    ...          ${background}=#fcf0ad
+    ...          ${color}=black
+    ...          ${border}=none
+    ...          ${display}=block
+    ...          ${position}=bottom
+    ${id} =  Add note  ${locator}  ${text}  ${width}  ${background}
+    ...                ${color}  ${border}  ${display}  ${position}
+    Execute Javascript
+    ...    return (function(){
+    ...        var annotation = jQuery('#${id}');
+    ...        var annotationWidth = annotation.outerWidth();
+    ...        var annotationHeight = annotation.outerHeight();
+    ...        var arrow = jQuery('<div></div>');
+    ...        arrow.css({
+    ...            'border-color': 'transparent',
+    ...            'border-style': 'solid',
+    ...            'border-width': '10px',
+    ...            'height': '0',
+    ...            'width': '0',
+    ...            'position': 'absolute',
+    ...            'z-index': '9999'
+    ...        });
+    ...        if ('${position}' === 'top') {
+    ...            arrow.css({
+    ...                'bottom': '-19.1px',
+    ...                'left': (
+    ...                    Math.floor((annotationWidth - 19) / 2) + 0.1
+    ...                ).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...        } else if ('${position}' === 'bottom') {
+    ...            arrow.css({
+    ...                'border-bottom-color': '${background}',
+    ...                'top': '-19.1px',
+    ...                'left': (
+    ...                    Math.floor((annotationWidth - 19) / 2) + 0.1
+    ...                ).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...        } else if ('${position}' === 'left') {
+    ...            arrow.css({
+    ...                'border-left-color': '${background}',
+    ...                'right': '-19px',
+    ...                'top': (
+    ...                    Math.floor((annotationHeight - 19) / 2) + 0.5
+    ...                ).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...        } else if ('${position}' === 'right') {
+    ...            arrow.css({
+    ...                'border-right-color': '${background}',
+    ...                'left': '-19px',
+    ...                'top': (
+    ...                    Math.floor((annotationHeight - 19) / 2) + 0.5
+    ...                ).toString() + 'px'
+    ...            }).appendTo(annotation);
+    ...        }
+    ...        return true;
+    ...    })();
+    [return]  ${id}
+
 Remove element
     [Documentation]   Removes the element with the given ``id`` from the
     ...               document.
