@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="robotframework-selenium2screenshots",
-    version='0.3.1',
+    version='0.3.2.dev0',
     description="Robot Framework keyword library for capturing annotated "
                 "screenshots with Selenium2Library",
     long_description=(open("README.rst").read() + "\n" +
