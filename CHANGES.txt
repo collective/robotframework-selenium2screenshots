@@ -1,23 +1,23 @@
 Changelog
 =========
 
-0.3.2 (unreleased)
+0.4.0 (2013-09-21)
 ------------------
 
-- Nothing changed yet.
-
+- Add 'Bootstrap jQuery'-keyword to add jQuery into the current page
+  [datakurre]
 
 0.3.1 (2013-09-20)
 ------------------
 
 - Fix issues with pointy note
-  [Asko Soukka]
+  [datakurre]
 
 0.3.0 (2013-09-20)
 ------------------
 
 - Add pointy note annotation
-  [Asko Soukka]
+  [datakurre]
 
 0.2.1 (2013-09-19)
 ------------------
