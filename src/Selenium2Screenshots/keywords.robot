@@ -13,6 +13,20 @@ ${CROP_MARGIN} =  10
 
 *** Keywords ***
 
+Bootstrap jQuery
+    [Documentation]  Injects jQuery into the curently active window.
+    Execute Javascript
+    ...    return (function(){
+    ...        var script = window.document.createElement('script');
+    ...        script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js';
+    ...        window.document.body.appendChild(script);
+    ...        return true;
+    ...    })();
+    Wait until keyword succeeds  60  2  Execute Javascript
+    ...    return (function(){
+    ...        return window.document.jQuery !== undefined;
+    ...    })();
+
 Normalize annotation locator
     [Documentation]  Normalizes the given *Selenium2Library*-locator into
     ...              *Sizzle*-selector, which is the support selector
