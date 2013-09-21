@@ -1,3 +1,3 @@
 # This requirements file is meant to be used only for ReadTheDocs.org to
 # retrieve requirements for building docs.
-robotframework-selenium2screenshots[docs]==0.3.0
+robotframework-selenium2screenshots[docs]==0.4.0
