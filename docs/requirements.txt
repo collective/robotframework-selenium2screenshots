@@ -1,0 +1,3 @@
+# This requirements file is meant to be used only for ReadTheDocs.org to
+# retrieve requirements for building docs.
+sphinxcontrib-robotframework>=0.4.2
