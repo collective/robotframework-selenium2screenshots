@@ -4,6 +4,8 @@ Robot Framework Selenium2Screenshots Library
 Usage
 -----
 
+:download:`View keyword documentation <keywords.html>`.
+
 Include keywords with::
 
    Resource  Selenium2Screenshots/keywords.robot
@@ -13,8 +15,6 @@ Include keywords with::
    This package implicitly requires PIL (Python Imaging Library), which must
    be installed to use this package. This does not explicitly require PIL to
    allow you to select between PIL and Pillow.
-
-:download:`Download keyword documentation <keywords.html>`.
 
 .. note:: All keywords are written as user keywords, but later they may be
    refactored into Python-keywords. If this happens, there will be backwards
