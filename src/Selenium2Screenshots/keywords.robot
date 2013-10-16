@@ -174,7 +174,7 @@ Add note
     ...              - ``position``, which defines an alternative position \
     ...                for the annotation element relative to the given and \
     ...                must be one of the following values: \
-    ...                ``top``, ``right``, ``bottom`` or ``left``
+    ...                ``top``, ``right``, ``bottom`` or ``left`` \
     ...                (default: ``none``).
     ...
     ...              Returns ``id`` of the created element.
@@ -297,7 +297,7 @@ Add pointy note
     ...              - ``position``, which defines the position \
     ...                of the annotation element relative to the given and \
     ...                must be one of the following values: \
-    ...                ``top``, ``right``, ``bottom`` or ``left``
+    ...                ``top``, ``right``, ``bottom`` or ``left`` \
     ...                (default: ``bottom``).
     ...
     ...              Returns ``id`` of the created element.

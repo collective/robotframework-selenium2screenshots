@@ -6,7 +6,7 @@ Usage
 
 Include keywords with::
 
-    Library  Selenium2Screenshots
+   Resource  Selenium2Screenshots/keywords.robot
 
 .. note::
 
@@ -49,14 +49,7 @@ And this is how this would look:
 Keywords
 --------
 
-.. robot_keywords::
-   :source: Selenium2Screenshots:keywords.robot
-
-Source
-------
-
-.. robot_source::
-   :source: Selenium2Screenshots:keywords.robot
+Download :download:`Keyword documentation <keywords.html>`.
 
 Notes
 -----
