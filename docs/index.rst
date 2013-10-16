@@ -49,18 +49,11 @@ And this is how this would look:
 Keywords
 --------
 
-Download :download:`Keyword documentation <keywords.html>`.
+See :download:`Keyword documentation <keywords.html>`.
 
-Notes
------
-
-All keywords are written as user keywords, but later they may be
-refactored into Python-keywords. If this happens, there will be backwards
-compatible wrappers available at ``keywords.robot``.
-
-Currently, RIDE is unable to find keywords provided by this library when this
-library is imported with ``Library  Selenium2Screenshots``. This can be fixed
-by requiring the library with ``Resource Selenium2Screenshots/keywords.robot``.
+.. note:: All keywords are written as user keywords, but later they may be
+   refactored into Python-keywords. If this happens, there will be backwards
+   compatible wrappers available at ``keywords.robot``.
 
 .. robotframework::
    :creates: robotframework.png
