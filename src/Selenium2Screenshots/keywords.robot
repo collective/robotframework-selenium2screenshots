@@ -1,7 +1,5 @@
 *** Settings ***
 
-Documentation  This library expects jQuery to be found from the tested page.
-
 Library  String
 Library  Collections
 Library  Selenium2Library
