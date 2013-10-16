@@ -24,7 +24,7 @@ This is how this should work:
    *** Settings ***
 
    Library  Selenium2Library
-   Library  Selenium2Screenshots
+   Resource  Selenium2Screenshots/keywords.robot
 
    Suite Teardown  Close all browsers
 
