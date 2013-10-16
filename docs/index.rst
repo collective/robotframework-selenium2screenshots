@@ -14,6 +14,12 @@ Include keywords with::
    be installed to use this package. This does not explicitly require PIL to
    allow you to select between PIL and Pillow.
 
+:download:`Download keyword documentation <keywords.html>`.
+
+.. note:: All keywords are written as user keywords, but later they may be
+   refactored into Python-keywords. If this happens, there will be backwards
+   compatible wrappers available at ``keywords.robot``.
+
 Example
 -------
 
@@ -45,15 +51,6 @@ And this is how this would look:
 
 .. image:: robotframework.png
    :width: 600
-
-Keywords
---------
-
-See :download:`Keyword documentation <keywords.html>`.
-
-.. note:: All keywords are written as user keywords, but later they may be
-   refactored into Python-keywords. If this happens, there will be backwards
-   compatible wrappers available at ``keywords.robot``.
 
 .. robotframework::
    :creates: robotframework.png
