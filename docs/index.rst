@@ -1,29 +1,13 @@
 Robot Framework Selenium2Screenshots Library
 ============================================
 
-Usage
------
-
-:download:`View keyword documentation <keywords.html>`.
+:download:`View available keywords <keywords.html>`.
 
 Include keywords with::
 
    Resource  Selenium2Screenshots/keywords.robot
 
-.. note::
-
-   This package implicitly requires PIL (Python Imaging Library), which must
-   be installed to use this package. This does not explicitly require PIL to
-   allow you to select between PIL and Pillow.
-
-.. note:: All keywords are written as user keywords, but later they may be
-   refactored into Python-keywords. If this happens, there will be backwards
-   compatible wrappers available at ``keywords.robot``.
-
-Example
--------
-
-This is how this should work:
+Example of use:
 
 .. code:: robotframework
 
@@ -47,10 +31,18 @@ This is how this should work:
        Capture and crop page screenshot  robotframework.png
        ...    header  ${note1}
 
-And this is how this would look:
+Example of result:
 
 .. image:: robotframework.png
    :width: 600
 
 .. robotframework::
    :creates: robotframework.png
+
+.. note:: This package implicitly requires PIL (Python Imaging Library), which
+   must be installed to use this package. This does not explicitly require PIL
+   to allow you to select between PIL and Pillow.
+
+.. note:: All keywords are written as user keywords, but later they may be
+   refactored into Python-keywords. If this happens, there will be backwards
+   compatible wrappers available at ``keywords.robot``.
