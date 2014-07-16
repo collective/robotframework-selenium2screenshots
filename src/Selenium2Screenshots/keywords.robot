@@ -594,3 +594,13 @@ Capture and crop page screenshot
     [Arguments]  ${filename}  @{locators}
     Capture page screenshot  ${filename}
     Crop page screenshot  ${filename}  @{locators}
+
+Highlight
+    [Documentation]  Add highlighting around given locator
+    [Arguments]  ${locator}
+    Update element style  ${locator}  outline  3px dotted red
+
+Clear highlight
+    [Documentation]  Clear highlighting from given lcator
+    [Arguments]  ${locator}
+    Update element style  ${locator}  outline  none
