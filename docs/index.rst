@@ -3,11 +3,19 @@ Robot Framework Selenium2Screenshots Library
 
 :download:`View available keywords <keywords.html>`.
 
-Include keywords with::
+Include keywords with:
+
+.. code:: robotframework
+
+   *** Settings ***
 
    Library  Selenium2Screenshots
 
-Or::
+Or:
+
+.. code:: robotframework
+
+   *** Settings ***
 
    Resource  Selenium2Screenshots/keywords.robot
 
