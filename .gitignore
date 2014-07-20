@@ -18,3 +18,4 @@ parts
 report.html
 selenium-screenshot-*.png
 var
+html

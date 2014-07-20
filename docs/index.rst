@@ -5,10 +5,17 @@ Robot Framework Selenium2Screenshots Library
 
 Include keywords with::
 
+   Library  Selenium2Screenshots
+
+Or::
+
    Resource  Selenium2Screenshots/keywords.robot
+
+Importing the keywords wth *Library* keyword may have compatibility issues.
 
 Example of use:
 
+.. figure:: robotframework.png
 .. code:: robotframework
 
    *** Settings ***
@@ -18,31 +25,35 @@ Example of use:
 
    Suite Teardown  Close all browsers
 
+   *** Keywords ***
+
+   Highlight heading
+       [Arguments]  ${locator}
+       Update element style  ${locator}  margin-top  0.75em
+       Highlight  ${locator}
+
    *** Test Cases ***
 
    Take an annotated screenshot of RobotFramework.org
        Open browser  http://robotframework.org/
-       Update element style  header  margin-top  1em
-       Update element style  header h1  outline  3px dotted red
+       Highlight heading  css=#header h1
        ${note1} =  Add pointy note
-       ...    header
-       ...    This Robot Framework stuff is very very cool!
-       ...    width=200  position=bottom
+       ...    css=#header
+       ...    This screenshot was generated using Robot Framework and Selenium.
+       ...    width=250  position=bottom
        Capture and crop page screenshot  robotframework.png
        ...    header  ${note1}
-
-Example of result:
-
-.. image:: robotframework.png
-   :width: 600
 
 .. robotframework::
    :creates: robotframework.png
 
-.. note:: This package implicitly requires PIL (Python Imaging Library), which
-   must be installed to use this package. This does not explicitly require PIL
-   to allow you to select between PIL and Pillow.
+.. note::
+
+   The image cropping requires PIL_ or Pillow_.
+
+.. _PIL: https://pypi.python.org/pypi/PIL
+.. _Pillow: https://pypi.python.org/pypi/Pillow
 
 .. note:: All keywords are written as user keywords, but later they may be
    refactored into Python-keywords. If this happens, there will be backwards
-   compatible wrappers available at ``keywords.robot``.
+   compatible wrappers available as ``keywords.robot``.
