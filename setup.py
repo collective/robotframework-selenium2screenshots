@@ -15,7 +15,7 @@ else:
 
 setup(
     name="robotframework-selenium2screenshots",
-    version='0.5.0',
+    version='0.6.0',
     description="Robot Framework keyword library for capturing annotated "
                 "screenshots with Selenium2Library",
     long_description=(open("README.rst").read() + "\n" +
