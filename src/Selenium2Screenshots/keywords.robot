@@ -56,12 +56,18 @@ Add pointer
     ...              - ``size``, which is the size of \
     ...                the annotation element in pixels (default: ``20``)
     ...
+    ...              - ``position``, which is the position-value of \
+    ...                the annotation element (default: ``center``).
+    ...
     ...              - ``display``, which is the display-value of \
     ...                the annotation element (default: ``block``).
     ...
     ...              Returns ``id`` of the created element.
     [Arguments]  ${locator}
-    ...          ${size}=20  ${display}=block
+    ...          ${size}=20
+    ...          ${position-x}=50
+    ...          ${position-y}=50
+    ...          ${display}=block
     ${selector} =  Normalize annotation locator  ${locator}
     ${size} =  Replace string  ${size}  '  \\'
     ${display} =  Replace string  ${display}  '  \\'
@@ -88,13 +94,9 @@ Add pointer
     ...            'background': 'black',
     ...            'width': '${size}px',
     ...            'height': '${size}px',
+    ...            'top': (offset.top + (height * (${position-y} / 100.0))) - (${size} / 2)+'px',
+    ...            'left': (offset.left + (width * (${position-x} / 100.0))) - (${size} / 2)+'px',
     ...            'border-radius': (${size} / 2).toString() + 'px',
-    ...            'top': (
-    ...                offset.top + height / 2 - ${size} / 2
-    ...            ).toString() + 'px',
-    ...            'left': (
-    ...                offset.left + width / 2 - ${size} / 2
-    ...            ).toString() + 'px',
     ...            'z-index': '9999'
     ...        });
     ...        jQuery('body').append(annotation);
@@ -123,6 +125,12 @@ Add dot
     ...              - ``color``, which is the foreground color of \
     ...                the annotation element (default: ``black``)
     ...
+    ...              - ``position-x``, which is the percentage position-value of \
+    ...                the annotation element (default: ``50``).
+    ...
+    ...              - ``position-y``, which is the percentage position-value of \
+    ...                the annotation element (default: ``50``).
+    ...
     ...              - ``display``, which is the display-value of \
     ...                the annotation element (default: ``block``).
     ...
@@ -131,8 +139,10 @@ Add dot
     ...          ${size}=20
     ...          ${background}=#fcf0ad
     ...          ${color}=black
+    ...          ${position-x}=50
+    ...          ${position-y}=50
     ...          ${display}=block
-    ${id} =  Add pointer  ${locator}  size=${size}  display=none
+    ${id} =  Add pointer  ${locator}  size=${size}  position-x=${position-x}  position-y=${position-y}  display=none
     Execute Javascript
     ...    return (function(){
     ...        jQuery('#${id}').css({
@@ -598,9 +608,13 @@ Capture and crop page screenshot
 Highlight
     [Documentation]  Add highlighting around given locator
     [Arguments]  ${locator}
-    Update element style  ${locator}  outline  3px dotted red
+    ...          ${width}=3
+    ...          ${style}=dotted
+    ...          ${color}=red
+
+    Update element style  ${locator}  outline  ${width}px ${style} ${color}
 
 Clear highlight
-    [Documentation]  Clear highlighting from given lcator
+    [Documentation]  Clear highlighting from given locator
     [Arguments]  ${locator}
     Update element style  ${locator}  outline  none
