@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7.0 (unreleased)
+0.7.0 (2016-06-16)
 ------------------
 
 - Added positioning for pointer and customization for Highlight. solves #3
