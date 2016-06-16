@@ -1,11 +1,11 @@
 Changelog
 =========
 
-0.6.1 (unreleased)
+0.7.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Added positioning for pointer and customization for Highlight. solves #3
+  [iham]
 
 0.6.0 (2015-05-20)
 ------------------
