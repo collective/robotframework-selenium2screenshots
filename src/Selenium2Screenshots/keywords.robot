@@ -22,7 +22,7 @@ Bootstrap jQuery
     ...    })();
     Wait until keyword succeeds  60  2  Execute Javascript
     ...    return (function(){
-    ...        return window.document.jQuery !== undefined;
+    ...        return typeof window.jQuery === 'function';
     ...    })();
 
 Normalize annotation locator

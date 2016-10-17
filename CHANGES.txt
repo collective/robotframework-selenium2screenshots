@@ -4,8 +4,9 @@ Changelog
 0.7.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Fix issue where 'Bootstrap jQuery'-keyword did not properly wait for jQuery
+  to be available
+  [Asko Soukka]
 
 0.7.0 (2016-06-16)
 ------------------
