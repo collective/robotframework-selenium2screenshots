@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7.1 (unreleased)
+0.7.1 (2016-10-17)
 ------------------
 
 - Fix issue where 'Bootstrap jQuery'-keyword did not properly wait for jQuery
