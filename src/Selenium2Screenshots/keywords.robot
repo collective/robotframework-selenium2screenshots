@@ -20,10 +20,12 @@ Bootstrap jQuery
     ...        window.document.body.appendChild(script);
     ...        return true;
     ...    })();
-    Wait until keyword succeeds  60  2  Execute Javascript
-    ...    return (function(){
-    ...        return typeof window.jQuery === 'function';
-    ...    })();
+    Wait Until Keyword Succeeds  60  2
+    ...    JQuery Should Be Loaded
+
+JQuery Should Be Loaded
+    ${jQueryType} =  Execute javascript  return typeof(window.jQuery);
+    Should Be Equal  function  ${jQueryType}
 
 Normalize annotation locator
     [Documentation]  Normalizes the given *Selenium2Library*-locator into
