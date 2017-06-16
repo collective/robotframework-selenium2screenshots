@@ -565,8 +565,8 @@ Crop page screenshot
     ...        }
     ...        return [Math.max(0, left - ${CROP_MARGIN}),
     ...                Math.max(0, top - ${CROP_MARGIN}),
-    ...                Math.max(0, width + ${CROP_MARGIN} * 2),
-    ...                Math.max(height + ${CROP_MARGIN} * 2)];
+    ...                Math.min(window.outerWidth, width + ${CROP_MARGIN} * 2),
+    ...                height + ${CROP_MARGIN} * 2];
     ...    })();
     ${first} =  Convert to string  @{dimensions}[0]
     Should match regexp  ${first}  ^[\\d\\.]+$
