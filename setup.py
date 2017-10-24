@@ -1,17 +1,13 @@
 import sys
 from setuptools import setup, find_packages
 
-PY3 = sys.version_info[0] == 3
 
 install_requires = [
         "setuptools",
-        "robotframework-selenium2library",
+        "robotframework>=3.0.2",
+        "robotframework-selenium2library>=3.0.0b1",
     ]
 
-if PY3:
-    install_requires.append('robotframework-python3 >= 2.6.0')
-else:
-    install_requires.append('robotframework >= 2.6.0')
 
 setup(
     name="robotframework-selenium2screenshots",
@@ -26,6 +22,8 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
     ],
     keywords="",
     author="Asko Soukka",
