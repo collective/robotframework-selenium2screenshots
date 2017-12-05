@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.8.0 (unreleased)
+0.8.0 (2017-12-05)
 ------------------
 
 - Depend on newest versions of Robot Framework and Selenium2Library
