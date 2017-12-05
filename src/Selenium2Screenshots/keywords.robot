@@ -499,7 +499,7 @@ Align elements horizontally
     \  ${selector} =  Normalize annotation locator  ${locator}
     \  Append to list  ${selectors}  ${selector}
     ${selectors} =  Convert to string  ${selectors}
-    ${selectors} =  Replace string using regexp  ${selectors}  u'  '
+    ${selectors} =  Replace string using regexp  ${selectors}  u'  '  count=1
     Execute Javascript
     ...    return (function(){
     ...        var selectors = ${selectors}, center=null, el, max, i;
@@ -533,7 +533,7 @@ Crop page screenshot
     \  ${selector} =  Normalize annotation locator  ${locator}
     \  Append to list  ${selectors}  ${selector}
     ${selectors} =  Convert to string  ${selectors}
-    ${selectors} =  Replace string using regexp  ${selectors}  u'  '
+    ${selectors} =  Replace string using regexp  ${selectors}  u'  '  count=1
     @{dimensions} =  Execute Javascript
     ...    return (function(){
     ...        var selectors = ${selectors}, i, target, offset;
