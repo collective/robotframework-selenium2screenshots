@@ -498,8 +498,7 @@ Align elements horizontally
     :FOR  ${locator}  IN  @{locators}
     \  ${selector} =  Normalize annotation locator  ${locator}
     \  Append to list  ${selectors}  ${selector}
-    ${selectors} =  Convert to string  ${selectors}
-    ${selectors} =  Replace string using regexp  ${selectors}  u'  '  count=1
+    ${selectors} =  Evaluate  "['%s']" % "', '".join(@{selectors})
     Execute Javascript
     ...    return (function(){
     ...        var selectors = ${selectors}, center=null, el, max, i;
@@ -532,8 +531,7 @@ Crop page screenshot
     :FOR  ${locator}  IN  @{locators}
     \  ${selector} =  Normalize annotation locator  ${locator}
     \  Append to list  ${selectors}  ${selector}
-    ${selectors} =  Convert to string  ${selectors}
-    ${selectors} =  Replace string using regexp  ${selectors}  u'  '  count=1
+    ${selectors} =  Evaluate  "['%s']" % "', '".join(@{selectors})
     @{dimensions} =  Execute Javascript
     ...    return (function(){
     ...        var selectors = ${selectors}, i, target, offset;
@@ -568,7 +566,7 @@ Crop page screenshot
     ...                Math.min(window.outerWidth, width + ${CROP_MARGIN} * 2),
     ...                height + ${CROP_MARGIN} * 2];
     ...    })();
-    ${first} =  Convert to string  @{dimensions}[0]
+    ${first} =  Evaluate  '@{dimensions}[0]'
     Should match regexp  ${first}  ^[\\d\\.]+$
     ...    msg=${first} was not found and no image was cropped
     Crop image  ${OUTPUT_DIR}  ${filename}  @{dimensions}
