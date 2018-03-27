@@ -43,7 +43,8 @@ Example of use:
    *** Test Cases ***
 
    Take an annotated screenshot of RobotFramework.org
-       Open browser  http://robotframework.org/
+       Open browser  http://robotframework.org/  browser=headlessfirefox
+       Set window size  1200  900
        Bootstrap jQuery
        Highlight heading  css=.main-header h1
        ${note1} =  Add pointy note
