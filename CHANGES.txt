@@ -4,7 +4,9 @@ Changelog
 0.8.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix issue where naive string conversion generated broken
+  JavaScript on Python 2 [fixes #12]
+  [Asko Soukka]
 
 
 0.8.0 (2017-12-05)
