@@ -360,8 +360,9 @@ Add pointy note
     ...        });
     ...        if ('${position}' === 'top') {
     ...            background.css({
-    ...                'border-top-color': '#d6d6d6',
-    ...                'bottom': '-23px',
+    ...                'border-top-color': '#000000',
+    ...                'opacity': '0.05',
+    ...                'bottom': '-24px',
     ...                'left': ((annotationWidth - 23) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...            arrow.css({
@@ -380,8 +381,9 @@ Add pointy note
     ...            }).appendTo(annotation);
     ...        } else if ('${position}' === 'bottom') {
     ...            background.css({
-    ...                'border-bottom-color': '#d6d6d6',
-    ...                'top': '-23px',
+    ...                'border-bottom-color': '#000000',
+    ...                'opacity': '0.05',
+    ...                'top': '-24px',
     ...                'left': ((annotationWidth - 23) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...            arrow.css({
@@ -400,8 +402,9 @@ Add pointy note
     ...            }).appendTo(annotation);
     ...        } else if ('${position}' === 'left') {
     ...            background.css({
-    ...                'border-left-color': '#d6d6d6',
-    ...                'right': '-23px',
+    ...                'border-left-color': '#000000',
+    ...                'opacity': '0.05',
+    ...                'right': '-24px',
     ...                'top': ((annotationHeight - 23) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...            arrow.css({
@@ -420,8 +423,9 @@ Add pointy note
     ...            }).appendTo(annotation);
     ...        } else if ('${position}' === 'right') {
     ...            background.css({
-    ...                'border-right-color': '#d6d6d6',
-    ...                'left': '-23px',
+    ...                'border-right-color': '#000000',
+    ...                'opacity': '0.05',
+    ...                'left': '-24px',
     ...                'top': ((annotationHeight - 23) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...            arrow.css({
