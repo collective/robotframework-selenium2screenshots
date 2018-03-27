@@ -11,7 +11,7 @@ install_requires = [
 
 setup(
     name="robotframework-selenium2screenshots",
-    version='0.8.1',
+    version='0.8.2.dev0',
     description="Robot Framework keyword library for capturing annotated "
                 "screenshots with Selenium2Library",
     long_description=(open("README.rst").read() + "\n" +
