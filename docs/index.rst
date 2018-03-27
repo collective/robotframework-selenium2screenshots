@@ -44,13 +44,14 @@ Example of use:
 
    Take an annotated screenshot of RobotFramework.org
        Open browser  http://robotframework.org/
-       Highlight heading  css=#header h1
+       Bootstrap jQuery
+       Highlight heading  css=.main-header h1
        ${note1} =  Add pointy note
-       ...    css=#header
+       ...    css=.main-header
        ...    This screenshot was generated using Robot Framework and Selenium.
        ...    width=250  position=bottom
        Capture and crop page screenshot  robotframework.png
-       ...    header  ${note1}
+       ...    css=.main-header  ${note1}
 
 .. robotframework::
    :creates: robotframework.png

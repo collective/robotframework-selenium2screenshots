@@ -360,8 +360,9 @@ Add pointy note
     ...        });
     ...        if ('${position}' === 'top') {
     ...            background.css({
-    ...                'border-top-color': '#d6d6d6',
-    ...                'bottom': '-23px',
+    ...                'border-top-color': '#000000',
+    ...                'opacity': '0.05',
+    ...                'bottom': '-24px',
     ...                'left': ((annotationWidth - 23) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...            arrow.css({
@@ -380,8 +381,9 @@ Add pointy note
     ...            }).appendTo(annotation);
     ...        } else if ('${position}' === 'bottom') {
     ...            background.css({
-    ...                'border-bottom-color': '#d6d6d6',
-    ...                'top': '-23px',
+    ...                'border-bottom-color': '#000000',
+    ...                'opacity': '0.05',
+    ...                'top': '-24px',
     ...                'left': ((annotationWidth - 23) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...            arrow.css({
@@ -400,8 +402,9 @@ Add pointy note
     ...            }).appendTo(annotation);
     ...        } else if ('${position}' === 'left') {
     ...            background.css({
-    ...                'border-left-color': '#d6d6d6',
-    ...                'right': '-23px',
+    ...                'border-left-color': '#000000',
+    ...                'opacity': '0.05',
+    ...                'right': '-24px',
     ...                'top': ((annotationHeight - 23) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...            arrow.css({
@@ -420,8 +423,9 @@ Add pointy note
     ...            }).appendTo(annotation);
     ...        } else if ('${position}' === 'right') {
     ...            background.css({
-    ...                'border-right-color': '#d6d6d6',
-    ...                'left': '-23px',
+    ...                'border-right-color': '#000000',
+    ...                'opacity': '0.05',
+    ...                'left': '-24px',
     ...                'top': ((annotationHeight - 23) / 2).toString() + 'px'
     ...            }).appendTo(annotation);
     ...            arrow.css({
@@ -498,8 +502,7 @@ Align elements horizontally
     :FOR  ${locator}  IN  @{locators}
     \  ${selector} =  Normalize annotation locator  ${locator}
     \  Append to list  ${selectors}  ${selector}
-    ${selectors} =  Convert to string  ${selectors}
-    ${selectors} =  Replace string using regexp  ${selectors}  u'  '  count=1
+    ${selectors} =  Evaluate  "['%s']" % "', '".join(@{selectors})
     Execute Javascript
     ...    return (function(){
     ...        var selectors = ${selectors}, center=null, el, max, i;
@@ -532,8 +535,7 @@ Crop page screenshot
     :FOR  ${locator}  IN  @{locators}
     \  ${selector} =  Normalize annotation locator  ${locator}
     \  Append to list  ${selectors}  ${selector}
-    ${selectors} =  Convert to string  ${selectors}
-    ${selectors} =  Replace string using regexp  ${selectors}  u'  '  count=1
+    ${selectors} =  Evaluate  "['%s']" % "', '".join(@{selectors})
     @{dimensions} =  Execute Javascript
     ...    return (function(){
     ...        var selectors = ${selectors}, i, target, offset;
@@ -568,7 +570,7 @@ Crop page screenshot
     ...                Math.min(window.outerWidth, width + ${CROP_MARGIN} * 2),
     ...                height + ${CROP_MARGIN} * 2];
     ...    })();
-    ${first} =  Convert to string  @{dimensions}[0]
+    ${first} =  Evaluate  '@{dimensions}[0]'
     Should match regexp  ${first}  ^[\\d\\.]+$
     ...    msg=${first} was not found and no image was cropped
     Crop image  ${OUTPUT_DIR}  ${filename}  @{dimensions}
