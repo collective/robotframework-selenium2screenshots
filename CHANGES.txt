@@ -4,7 +4,8 @@ Changelog
 0.8.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed "Crop page screenshot" to recognize scrolled position and pixel ratio.
+  [iham]
 
 
 0.8.1 (2018-03-27)
