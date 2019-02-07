@@ -540,6 +540,7 @@ Crop page screenshot
     ...    return (function(){
     ...        var selectors = ${selectors}, i, target, offset;
     ...        var left = null, top = null, width = null, height = null;
+    ...        var ratio = window.devicePixelRatio;
     ...        for (i = 0; i < selectors.length; i++) {
     ...            target = jQuery(selectors[i]);
     ...            if (target.length === 0) {
@@ -562,13 +563,13 @@ Crop page screenshot
     ...            }
     ...            if (left === null) { left = offset.left; }
     ...            else { left = Math.min(left, offset.left); }
-    ...            if (top === null) { top = offset.top; }
+    ...            if (top === null) { top = offset.top - jQuery(window).scrollTop(); }
     ...            else { top = Math.min(top, offset.top); }
     ...        }
-    ...        return [Math.max(0, left - ${CROP_MARGIN}),
-    ...                Math.max(0, top - ${CROP_MARGIN}),
-    ...                Math.min(window.outerWidth, width + ${CROP_MARGIN} * 2),
-    ...                height + ${CROP_MARGIN} * 2];
+    ...        return [Math.max(0, (left - ${CROP_MARGIN})*ratio),
+    ...                Math.max(0, (top - ${CROP_MARGIN})*ratio),
+    ...                Math.min(window.outerWidth*ratio, (width + ${CROP_MARGIN} * 2)*ratio),
+    ...                (height + ${CROP_MARGIN} * 2)*ratio];
     ...    })();
     ${first} =  Evaluate  '@{dimensions}[0]'
     Should match regexp  ${first}  ^[\\d\\.]+$
